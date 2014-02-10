@@ -1,56 +1,51 @@
-WAF.define('Ratings', function() {
+WAF.define('wakandaratings', function() {
     var widget = WAF.require('waf-core/widget');
-    var Ratings = widget.create('Ratings');
-
-//	Event.create("rate");
-//    Event.create("reset");
+    var wakandaratings = widget.create('wakandaratings');
+	
+	wakandaratings.addProperty('value', { defaultValue : 2,  type : "number"});
     
-	Ratings.prototype.init = function () { 
+	wakandaratings.prototype.init = function () { 
+	
 	     var that = this,
             $htmlElement, max;
 		
 		
 		 $('#' + this.id).bind('rated', function(event) {
-		 	that._binded_attributes.value.datasource.rate = $(this).find('.rateit').rateit('value');
-		 	that._binded_attributes.value.datasource.save();
+		 	that.value($rateIt.rateit('value'));
+		 	that._bindedAttributes.value.datasource.save();
             
-            Ratings.autoFireDomEvent('rate', Event.rate);
+            wakandaratings.autoFireDomEvent('rate', Event.rate);
             
         });
+       
         $('#' + this.id).bind('reset', function(event) {
-        	that._binded_attributes.value.datasource.rate = 0;
-		 	that._binded_attributes.value.datasource.save();
+        	that.value(0);
+		 	that._bindedAttributes.value.datasource.save();
             
-             Ratings.autoFireDomEvent('reset', Event.reset);
+             wakandaratings.autoFireDomEvent('reset', Event.reset);
         });
 		
         $htmlElement = $("#" + this.id);
         max = this.options.max || 5;
-        $htmlElement.html('<div class="waf-container"><span class="rateit"> </span></div>');
+        $htmlElement.html('<span class="rateit"> </span>');
 		
 		$rateIt = $htmlElement.find('.rateit');
 		$rateIt.rateit();
         $rateIt.rateit('max', max);
 
-        if (this.options.fixedvalue) {
-			$rateIt.rateit('value', this.options.fixedvalue);
+        
+        if (this.options.value) {
+			$rateIt.rateit('value', this.options.value);
         }
+        
+        
+        this.value.onChange(function (myValue) {
+			$rateIt.rateit('value', myValue);
+		});
 	};
-	
-	Ratings.prototype.value = function(myValue) {
-        if (arguments.length > 0) { // if there's a parameter, set the value
-            this._value = myValue;
-
-           $("#" + this.id).find('.rateit').rateit('value', myValue); //update rating
-        }
-        return this._value; // otherwise, just get the value
-    };
-	
-//  /* create a new bindable property */
-	
-	Ratings.makeBindableProperty('value',Ratings.prototype.value, Event.rate);
-	
-    return Ratings;
+	// wakandaratings.makeBindableProperty('value',this.value, Event.rate);
+	 
+    return wakandaratings;
 });
 
 // For more information, refer to http://doc.wakanda.org/Wakanda0.DevBranch/help/Title/en/page3871.html

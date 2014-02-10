@@ -1,24 +1,24 @@
 ## Custom Widget for [Wakanda](http://wakanda.org)
-The __Ratings__ widget is based on the rateit library, for more details please see http://rateit.codeplex.com/ 
+The __wakandaratings__ widget is based on the rateit library, for more details please see http://rateit.codeplex.com/ 
 
 
 ### Properties
-This __Ratings__ widget has the following properties: 
+This __wakandaratings__ widget has the following properties: 
 
-* __Max Value__: It's the Max Ratings Value, the default value is 5.
+* __Max Value__: It's the Max wakandaratings Value, the default value is 5.
 * __Source__: Datasource attribute that holds the rating value.
 * __Value__: Number that represents the initial rating value (if Source is not provided, this value will be used).
 
 ### Events:
 
-This __Ratings__ widget has 2 Events:
+This __wakandaratings__ widget has 2 Events:
 
 * __On Rate__: fired when the user rates something.
 
 * __On Reset Rate__: ired when the user reset his rate.
 
 ### Goals
-The __Ratings__ widget allows you to easily add rating feature to your Wakanda application, e.g: rate article, products, reviews...
+The __wakandaratings__ widget allows you to easily add rating feature to your Wakanda application, e.g: rate article, products, reviews...
 
 
 
@@ -39,7 +39,7 @@ Custom Widget
 3. Drop the datasource string attribute S1 inside the widget or change the property's panel Datasource "Source", and fill in the Max Value.
 4. save your page
 5. run your page 
-6. Ratings Widget will appear.
+6. wakandaratings Widget will appear.
  
 ```
 
