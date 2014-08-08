@@ -3,19 +3,11 @@
      /*Display name of the widget*/
 	wakandaratings.setDescription('wakandaratings');
 
-//      /*Define your widget's properties*/
-	wakandaratings.addAttributes([{
-        name: 'data-max',
-        description: 'Max Value',
-        type: 'string',
-        defaultValue:'5'
-    }]);
-    
-    
-
 //      /*Default width and height of your widget when added to the Page*/
 	wakandaratings.setWidth('180');
 	wakandaratings.setHeight('21');
+	
+	wakandaratings.customizeProperty("max", {'title': 'Max value'});
 
 //      /*Define the events for your widget*/
 	wakandaratings.addEvent({

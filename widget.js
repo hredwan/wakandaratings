@@ -3,7 +3,10 @@ WAF.define('wakandaratings', function() {
     var wakandaratings = widget.create('wakandaratings');
 	
 	wakandaratings.addProperty('value', { defaultValue : 2,  type : "number"});
-    
+	
+	wakandaratings.addProperty('max',{ defaultValue : 5,  type : "number", bindable : false});
+	
+   
 	wakandaratings.prototype.init = function () { 
 	
 	     var that = this,
@@ -26,17 +29,16 @@ WAF.define('wakandaratings', function() {
         });
 		
         $htmlElement = $("#" + this.id);
-        max = this.options.max || 5;
         $htmlElement.html('<span class="rateit"> </span>');
 		
 		$rateIt = $htmlElement.find('.rateit');
 		$rateIt.rateit();
-        $rateIt.rateit('max', max);
+        $rateIt.rateit('max', this.max());
 
         
-        if (this.options.value) {
-			$rateIt.rateit('value', this.options.value);
-        }
+
+		$rateIt.rateit('value', this.value());
+
         
         
         this.value.onChange(function (myValue) {
