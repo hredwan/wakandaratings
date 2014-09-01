@@ -1,4 +1,5 @@
 (function(wakandaratings) {
+	"use strict";
 	/*Default width and height of your widget when added to the Page*/
 	wakandaratings.setWidth('180');
 	wakandaratings.setHeight('21');
