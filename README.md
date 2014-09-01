@@ -5,17 +5,17 @@ The __wakandaratings__ widget is based on the rateit library, for more details p
 ### Properties
 This __wakandaratings__ widget has the following properties: 
 
-* __Max Value__: It's the Max wakandaratings Value, the default value is 5.
-* __Source__: Datasource attribute that holds the rating value.
-* __Value__: Number that represents the initial rating value (if Source is not provided, this value will be used).
+* __max__: the max wakandaratings value (default: 5).
+* __step__: step size (default: 1).
+* __value__: current rating value (default: 2).
+* __resetable__: show a reste button (default: true).
+* __readOnly__: set the widget as read-only (default: false).
 
 ### Events:
 
-This __wakandaratings__ widget has 2 Events:
+This __wakandaratings__ widget has an events:
 
-* __On Rate__: fired when the user rates something.
-
-* __On Reset Rate__: ired when the user reset his rate.
+* __change__: fired when the user rates something.
 
 ### Goals
 The __wakandaratings__ widget allows you to easily add rating feature to your Wakanda application, e.g: rate article, products, reviews...
